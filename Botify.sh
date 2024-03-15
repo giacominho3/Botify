@@ -1,162 +1,150 @@
 #!/bin/bash
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+RESET='\033[0m'
+
+UKNOWN="[????]"
+BOTIFY="[Botify]"
+
 clear
+
+print_animated() {
+    local message=$1
+	local color=$2
+	printf "%b" "$color"
+    while IFS= read -r -n1 var;
+	do
+        printf '%s' "$var"
+        sleep 0.015
+    done <<< "$message"
+	printf "%b" "$RESET"
+}
 
 if [ $# -ge 0 ] && [ $# -le 1 ]; then
     case "$1" in
         "")
-            str="[???]: ..."
-
             for i in {1..3}; do
-                while IFS= read -r -n1 var
-                do
-                    printf '%s' "$var"
-                    sleep 0.03
-                done <<< "$str"
+                print_animated "$UKNOWN" "$RED"
+                print_animated ": ..." "$WHITE" 
                 sleep 0.5
+                echo
                 echo
             done
 
-            str="[???]: Hey, scusa se non ti ho sentito arrivare, avevo il volume troppo alto... "
+            print_animated $UKNOWN $RED
 
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.03
-            done <<< "$str"
+            str=": Hey, scusa se non ti ho sentito arrivare, avevo il volume troppo alto... "
+            print_animated "$str" "$WHITE"
 
             sleep 0.2
 
-            str="Sono Botify, piacere! Sei qui per il test, giusto?"
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.03
-            done <<< "$str"
+            str="io sono Botify piacere! Sei qui per il test giusto?"
+            print_animated "$str" "$WHITE"
 
             echo
             sleep 0.5
             echo
 
-            str="[Botify]: Che domanda stupida... Che altra motivazione avrebbe una creatura come te per essere qui? Hahahaha ;)"
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Che domanda stupida... Che altra motivazione avrebbe una creatura come te per essere qui? Hahahaha ;)"
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Come avrai intuito dal mio nome, sono incaricato di gestire le playlist del nostro creatore."
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Come avrai intuito dal mio nome, gestisco le playlist del nostro creatore."
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
+            
+            print_animated "$BOTIFY" "$GREEN"
 
-            str="[Botify]: Per valutare le tue abilità, ti affiderò uno dei compiti più semplici che svolgo quotidianamente: l'ordinamento delle canzoni nelle playlist."
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            str=": Per valutare le tue abilità, ti affiderò uno dei compiti più semplici che svolgo quotidianamente: ordinare le canzoni nelle playlist."
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Ti ho lasciato una cartella chiamata \"media\" con all'interno alcuni file. Ti chiedo di creare una playlist \"Rock\" e una playlist \"Rap\". Le due cartelle delle playlist devono essere chiamate ESATTAMENTE in questo modo."
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
-
-            echo
-            sleep 0.03
-            echo
-
-            str="[Botify]: Nel caso in cui non conoscessi i generi delle canzoni che ho selezionato per te (il che sarebbe veramente deludente), puoi consultarmi in qualsiasi momento per ottenere una lista delle canzoni con il relativo genere! :D"
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Ti ho lasciato una cartella chiamata "
+            print_animated "$str" "$WHITE"
+            print_animated "media" "$YELLOW"
+            str=" con all'interno alcuni file. Ti chiedo di creare una playlist "
+            print_animated "$str" "$WHITE"
+            print_animated "Rock" "$YELLOW"
+            str=" e una playlist "
+            print_animated "$str" "$WHITE"
+            print_animated "Rap" "$YELLOW"
+            str=". Le due cartelle delle playlist devono essere chiamate ESATTAMENTE in questo modo."
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Per visualizzare la lista delle canzoni per genere, usa \"sh Botify.sh genere\""
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Nel caso in cui non conoscessi i generi delle canzoni che ho selezionato per te (il che sarebbe veramente deludente), puoi consultarmi quando vuoi per ottenere una lista delle canzoni con il relativo genere! :D"
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Solo per essere chiari... le playlist che creerai devono essere inserite nella cartella \"playlists\"."
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Per vedere la lista delle canzoni per genere, usa "
+            print_animated "$str" "$WHITE"
+            print_animated "sh Botify.sh genere" "$PURPLE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Prima di lasciarti voglio darti un ultimo consiglio... Dai un'occhiata ai testi delle canzoni."
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Solo per essere chiari... le playlist che creerai dovranno essere inserite in una cartella di nome "
+            print_animated "$str" "$WHITE"
+            print_animated "playlists" "$YELLOW"
+            print_animated "." "$WHITE"
 
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            echo
+            sleep 0.3
+            echo
 
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Prima di lasciarti voglio darti un'ultimo consiglio... Dai un'occhiata ai testi delle canzoni per altri eventuali indizi ;)."
+            print_animated "$str" "$WHITE"
+
+            echo
+            sleep 0.3
             echo
         ;;
         "genere")
-            str="[Botify]: Sono molto deluso..."
-
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
-            sleep 0.5
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Sono molto deluso..."
+            print_animated "$str" "$WHITE"
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
-            str="[Botify]: Eccoti la lista :/"
-            while IFS= read -r -n1 var
-            do
-                printf '%s' "$var"
-                sleep 0.015
-            done <<< "$str"
+            print_animated "$BOTIFY" "$GREEN"
+            str=": Eccoti la lista :/"
+            print_animated "$str" "$WHITE"
 
             sleep 0.5
 
             echo
-            sleep 0.03
+            sleep 0.3
             echo
 
             echo "- Hotel California - Eagles | Rock"
@@ -171,10 +159,10 @@ if [ $# -ge 0 ] && [ $# -le 1 ]; then
             echo "- Fear - Logic | Rap"
             echo "- Many Man - 50 Cent | Rap"
             echo "- Humble - Kendrick Lamar | Rap"
-            echo "- Big Poppa - The Notorious B.I.G | Rap"
+            echo "- Miguel Planet - Pippo Sowlo | Rap"
             echo "- Straight Outta Compton - N.W.A. | Rap"
             echo "- What's The difference - Dr.Dre | Rap"
-            echo "- All Eyez On Me - 2Pac | Rap" k
+            echo "- All Eyez On Me - 2Pac | Rap"
         ;;
         *)
             echo
