@@ -121,7 +121,7 @@ if [ $# -ge 0 ] && [ $# -le 1 ]; then
             echo
 
             print_animated "$BOTIFY" "$GREEN"
-            str=": Prima di lasciarti voglio darti un'ultimo consiglio... Dai un'occhiata ai testi delle canzoni per altri eventuali indizi ;)."
+            str=": Prima di lasciarti voglio darti un'ultimo consiglio... Dai un'occhiata ai testi delle canzoni in ordine alfabetico per altri eventuali indizi ;)."
             print_animated "$str" "$WHITE"
 
             echo
@@ -150,17 +150,9 @@ if [ $# -ge 0 ] && [ $# -le 1 ]; then
             echo "- Hotel California - Eagles | Rock"
             echo "- Hysteria - Muse | Rock"
             echo "- Alien Blues - Vundabar | Rock"
-            echo "- Dumb - Nirvana | Rock"
-            echo "- King Park - La Dispute | Rock"
-            echo "- Cloud 9 - Emarosa | Rock"
-            echo "- Gumshield - Don Broco | Rock"
             echo "- Brain Stew - Green Day | Rock"
             echo "- The Real Slim Shady - Eminem | Rap"
-            echo "- Fear - Logic | Rap"
             echo "- Many Man - 50 Cent | Rap"
-            echo "- Humble - Kendrick Lamar | Rap"
-            echo "- Miguel Planet - Pippo Sowlo | Rap"
-            echo "- Straight Outta Compton - N.W.A. | Rap"
             echo "- What's The difference - Dr.Dre | Rap"
             echo "- All Eyez On Me - 2Pac | Rap"
         ;;
